@@ -13,10 +13,11 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.service import Service
 import wordgame
 
-db = shelve.open('dbm.ndbm')
+db = shelve.open('dbm.ndbm', writeback=True)
+db["admin"] = {'username': 'admin','count':1}
 
 result = ""
-all_count = 1
+all_count = 0
 timeout = 0
 last_answer = ""
 curr_quest = ""
@@ -58,12 +59,12 @@ def image():
   driver.get('https://youtubetreamer.onrender.com/')
   while True:
     driver.save_screenshot('screen.png')
-    #print("Printed 1")
+    print("Screen...")
     time.sleep(5)
     timeout += 5
 
 print("Run FFMPEG now...")
-#subprocess.Popen(cmds)
+subprocess.Popen(cmds)
 
 #Настраиваем сервер Flask
 app = Flask('')
@@ -90,8 +91,9 @@ def process_json():
 def set_board():
   global all_count
   if request.args['user_id'] in db:
-    print("UserID already exists")
+    #print("UserID already exists")
     db[request.args['user_id']]["count"] +=1
+    db.sync()
     #print(f"{db[request.args['user_id']]['username']} likes is {db[request.args['user_id']]['count']}")
     #print(sorted(db, key=lambda x: db[x]['count'], reverse=True))
     '''
@@ -104,6 +106,7 @@ def set_board():
     return jsonify(str(db[request.args['user_id']]['count']))
   else:
     db[request.args['user_id']] = {'username':request.args['username'],'count':1}
+    db.sync()
     print(db[request.args['user_id']]['count'])
     return jsonify(str(db[request.args['user_id']]['count']))
 
@@ -126,6 +129,7 @@ def check_answer():
     if request.args['user_id'] in db:
       if last_answer != answ and answ == curr_quest[1]:
         db[request.args['user_id']]["count"] +=10
+        db.sync()
         last_answer = answ
         wordgame.delete('*'.join(curr_quest))
         return jsonify("@"+name+", Верно!")
@@ -135,8 +139,10 @@ def check_answer():
         return jsonify("@"+name+", Неверно...")
     else:
       db[request.args['user_id']] = {'username':request.args['username'],'count':1}
+      db.sync()
       if last_answer != answ and answ == curr_quest[1]:
         db[request.args['user_id']]["count"] +=9
+        db.sync()
         last_answer = answ
         wordgame.delete('*'.join(curr_quest))
         return jsonify("@"+name+", Верно!")
