@@ -1,3 +1,3 @@
 pip install -r requirements.txt
-python chrome_build.py
+./chrome_build.sh
 python setup.py 
