@@ -13,6 +13,7 @@ import wordgame
 
 db = shelve.open('dbm.ndbm')
 
+PATH = "./chromedriver"
 result = ""
 all_count = 0
 timeout = 0
@@ -47,8 +48,7 @@ options.add_argument('--disable-dev-shm-usage')
 options.add_argument("--headless")
 options.add_argument("window-size=1280,720")
 #options.add_argument("--start-maximized")
-driver = webdriver.Chrome(options=options) 
-driver = webdriver.Chrome(options=options)
+driver = webdriver.Chrome(options=options, executable_path=PATH)
 
 def image():
   global timeout
