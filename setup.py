@@ -12,3 +12,5 @@ def main():
     driver = webdriver.Chrome(PATH)
     driver.get(URL)
     time.sleep(1000)
+    
+main()
