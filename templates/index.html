@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+ <link rel="icon" href="https://www.favicon.by/ico/644bba9acac50.ico">
+  <title>YouTube Clicker Game</title>
+  <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet" type="text/css" />
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/easytimer@1.1.1/dist/easytimer.min.js"></script>
+<img class="palitra" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Fxemoji_u1F1F7_1F1FA.svg/1200px-Fxemoji_u1F1F7_1F1FA.svg.png" alt="buttons"/>
+</head>
+<body>
+
+<div id="board"> 
+  <!-- Для обновлемого контента -->
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="{{ url_for('static', filename='jquery.fittext.js')}}"></script>
+<script type="text/javascript">
+		$(".text").fitText();
+    $(".num").fitText();
+</script>
+<div class="gamearea">
+  <div class="letter-row">
+  
+  </div>
+</div>
+</body>
+</html>
