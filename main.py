@@ -113,7 +113,7 @@ def get_board():
   list = sorted(db, key=lambda x: db[x]['count'], reverse=True)
   stats = ''
   for i in list[:20]:
-    stats += '<div class="avatar" id="' + i + '" style="width:' + str((5+((db[i]['count']*100)/all_count)*0.15)) + '%"> <img src="https://picsum.photos/seed/'+str(db.prefix(i)[0])+'/200/200"> <span class="text" id="text">' + db[i]["username"] +'</span><span class="num">'+ str(db[i]['count']) +'</span></div>'
+    stats += '<div class="avatar" id="' + i + '" style="width:' + str((5+((db[i]['count']*100)/all_count)*0.15)) + '%"> <img src="https://picsum.photos/seed/'+str(i)+'/200/200"> <span class="text" id="text">' + db[i]["username"] +'</span><span class="num">'+ str(db[i]['count']) +'</span></div>'
   #print(f"Всего голосов: {all_count}")
   return stats
 
