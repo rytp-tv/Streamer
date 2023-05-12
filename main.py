@@ -63,13 +63,15 @@ def image():
     time.sleep(5)
     timeout += 5
 
+print("Run FFMPEG now...")
+subprocess.Popen(cmds)
+
 #Настраиваем сервер Flask
 app = Flask('')
 @app.route("/")
 def index():
   if ("ffmpeg" in (i.name() for i in psutil.process_iter())) == False:
     print("Running FFmpeg...")
-    subprocess.Popen(cmds)
     return render_template("index.html")
   else:
     return render_template("index.html")
