@@ -55,7 +55,7 @@ driver = webdriver.Chrome(service=service, options=options)
 
 def image():
   global timeout
-  driver.get('https://youtubeclicker.acracro.repl.co')
+  driver.get('https://youtubetreamer.onrender.com/')
   while True:
     driver.save_screenshot('screen.png')
     #print("Printed 1")
