@@ -1,0 +1,210 @@
+body {
+  background: #222;
+  height: 100%;
+  overflow-y: hidden;
+}
+
+#board {
+  align-items: center;
+  background: #222;
+  display: flex;
+  height: 100%;
+  overflow-y: hidden;
+  
+  justify-content: center;
+  margin: 10px;
+  flex-wrap: wrap;
+}
+
+html {
+  height: 100%;
+}
+
+.avatar {
+  height: auto;
+  position: relative;
+  width: 5%;
+  min-width: 5%;
+  max-width: 20%;
+  flex: 3 5px auto;
+  margin: 10px;
+  transition: all.4s;
+  display: flex;
+}
+
+ /* Span Tag */
+.text {
+ /* размер текста зависит от ширины родительского блока div */
+  text-shadow:rgb(198, 100, 50) 0px 0px 2px, rgb(35, 105, 100) 0px 0px 4px, rgb(255, 255, 255) 0px 0px 6px, rgb(255, 119, 255) 0px 0px 8px, rgb(255, 0, 255) 0px 0px 12px, rgb(255, 0, 255) 0px 0px 16px, rgb(255, 0, 255) 0px 0px 20px, rgb(255, 0, 255) 0px 0px 24px;
+  font: 16px/1.8 sans-serif;
+  word-wrap: break-word;
+  max-width: 100%;
+  z-index: 100;
+  position: absolute;
+  right: 0px;
+  bottom: auto;
+  top: 67%;
+  left: 0px;
+  text-align: center;
+  font-family: Verdana,Geneva,sans-serif;
+  color: #fff;
+}
+.num {
+  font: 15px/1.0 sans-serif;
+  font-weight:600;
+  text-shadow:rgb(0, 0, 0) 0px 1px 1px, rgb(0, 0, 0) 0px -1px 1px, rgb(0, 0, 0) 1px 0px 1px, rgb(0, 0, 0) -1px 0px 1px;
+  word-wrap: break-word;
+  max-width: 100%;
+  z-index: 100;
+  position: absolute;
+  right: 0px;
+  bottom: auto;
+  top: 85%;
+  left: 0px;
+  text-align: center;
+  font-family: Verdana,Geneva,sans-serif;
+  color:#c6f796;
+
+}
+  
+.avatar img {
+  border-radius: 9999px;
+  height: 100%;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+@keyframes cycle-colors {
+  0% { border-color: hsl(0, 100%, 50%); }
+  25% { border-color: hsl(90, 100%, 50%); }
+  50% { border-color: hsl(180, 100%, 50%); }
+  75% { border-color: hsl(270, 100%, 50%); }
+  100% { border-color: hsl(360, 100%, 50%); }
+}
+
+@keyframes pulse {
+  to {
+    opacity: 0;
+    transform: scale(0.85);
+  }
+}
+
+.avatar::before,
+.avatar::after {
+  animation: pulse 10s linear infinite;
+  border: #fff solid 8px;
+  border-radius: 9999px;
+  box-sizing: border-box;
+  content: ' ';
+  height: 140%;
+  left: -20%;
+  opacity: .6;
+  position: absolute;
+  top: -20%;
+  transform: scale(0.714);
+  width: 140%;
+  z-index: 1;
+}
+
+.avatar::after {
+  animation-delay: 5s;
+}
+
+.avatar:hover::before,
+.avatar:hover::after {
+  animation: pulse 5s linear infinite, cycle-colors 4s linear infinite;
+}
+
+.avatar:hover::after {
+  animation-delay: .5s;
+}
+
+.gamearea {
+ position:absolute;
+ top: 88%;
+ width:80%;
+ height: 12%;
+ left:10%;
+ right:auto;
+ border-top-left-radius:30px;
+ border-top-right-radius:30px;
+ background-color:#bdc3c7;
+}
+
+/* ___Стили для викторины___ */
+
+#game-board {
+  /* делаем выравнивание всех элементов по центру */
+  display: flex;
+  align-items: center;
+  /* добавляем выравнивание по вертикали */
+  flex-direction: column;
+}
+.quest {
+    text-shadow: 
+		-0   -1px 1px #5E5E5E,
+		 0   -1px 1px #5E5E5E,
+		-0    1px 1px #5E5E5E,
+		 0    1px 1px #5E5E5E,
+		-1px -0   1px #5E5E5E,
+		 1px -0   1px #5E5E5E,
+		-1px  0   1px #5E5E5E,
+		 1px  0   1px #5E5E5E,
+		-1px -1px 1px #5E5E5E,
+		 1px -1px 1px #5E5E5E,
+		-1px  1px 1px #5E5E5E,
+		 1px  1px 1px #5E5E5E,
+		-1px -1px 1px #5E5E5E,
+		 1px -1px 1px #5E5E5E,
+		-1px  1px 1px #5E5E5E,
+		 1px  1px 1px #5E5E5E;
+}
+/* стиль для строки */
+.letter-row {
+  /* каждая клетка пусть будет в своём отдельном контейнере */
+  font-size: 1.3rem;
+  height: 100%;
+  font-weight: 700;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  color: rgb(249, 250, 250);
+}
+
+/* стиль для клетки */
+.letter-box {
+  /* рисуем границу */
+  border: 2px solid gray;
+  border-radius: 3px;
+  /* добавляем отступы */
+  margin: 2px;
+  /* размер шрифта */
+  font-size: 2rem;
+  font-weight: 700;
+  color: black;
+  /* высота и ширина клетки */
+  height: 2rem;
+  width: 2rem;
+  /* выравниваем содержимое по центру */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* делаем все буквы большими */
+  text-transform: uppercase;
+}
+.values {
+	color: black;
+	margin-left: 8px;
+}
+
+.palitra {
+display: block;
+margin-right:10px;
+height: 50px;
+width: auto;
+position: fixed;
+right: 0;
+top: 0px;
+z-index: 99999;
+}
