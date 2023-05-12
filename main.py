@@ -16,7 +16,7 @@ import wordgame
 db = shelve.open('dbm.ndbm')
 
 result = ""
-all_count = 0
+all_count = 1
 timeout = 0
 last_answer = ""
 curr_quest = ""
