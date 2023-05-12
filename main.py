@@ -9,11 +9,12 @@ from flask import request, render_template, jsonify
 from threading import Thread
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.service import Service
 import wordgame
 
 db = shelve.open('dbm.ndbm')
 
-PATH = "./chromedriver"
 result = ""
 all_count = 0
 timeout = 0
@@ -42,13 +43,15 @@ cmds = ['ffmpeg',
 
 # Настраиваем Selenium среду для создания снимков страницы
 
+service = Service(ChromeDriverManager().install())
+
 options = Options()
 options.add_argument('--no-sandbox')
 options.add_argument('--disable-dev-shm-usage')
 options.add_argument("--headless")
 options.add_argument("window-size=1280,720")
 #options.add_argument("--start-maximized")
-driver = webdriver.Chrome(options=options, executable_path=PATH)
+driver = webdriver.Chrome(service=service, options=options)
 
 def image():
   global timeout
