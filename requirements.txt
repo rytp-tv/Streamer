@@ -1,3 +1,4 @@
+webdriver-manager
 chromedriver_autoinstall
 selenium
 requests
