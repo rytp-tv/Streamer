@@ -23,7 +23,7 @@ cmds = ['ffmpeg',
         '-vf', 'format=yuv420p',
         '-c:v', 'libx264', '-b:v', '2000k', '-maxrate', '4000k', '-bufsize', '2000k', '-g', '12', 
         '-c:a', 'aac', 
-        '-f', 'flv', '-r', '16', 'rtmp://a.rtmp.youtube.com/live2/u6kx-44tt-x9xw-j74y-79pw', '-loglevel', 'warning']
+        '-f', 'flv', '-r', '16', 'rtmp://a.rtmp.youtube.com/live2/rb83-ssyw-mt4f-vpg6-2azs', '-loglevel', 'warning']
 
 # Настраиваем Selenium среду для создания снимков страницы
 
