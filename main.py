@@ -13,7 +13,7 @@ import wordgame
 
 # Параметры запуска FFmpeg
 cmds = ['ffmpeg', 
-        '-r', '5',
+        '-re', '-framerate 12',
         '-f', 'image2', 
         '-stream_loop', '-1', 
         '-i', 'screen.png',
