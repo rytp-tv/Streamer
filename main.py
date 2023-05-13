@@ -4,8 +4,6 @@ import selenium
 import requests
 import psutil
 import shelve
-from flask import Flask
-from flask import request, render_template, jsonify
 from threading import Thread
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -25,7 +23,7 @@ cmds = ['ffmpeg',
         '-vf', 'format=yuv420p',
         '-c:v', 'libx264', '-b:v', '1500k', '-maxrate', '4000k', '-bufsize', '2000k', '-g', '6', 
         '-c:a', 'aac', 
-        '-f', 'flv', '-r', '12', 'rtmp://b.rtmp.youtube.com/live2?backup=1/u6kx-44tt-x9xw-j74y-79pw', '-loglevel', 'warning']
+        '-f', 'flv', '-r', '12', 'rtmp://a.rtmp.youtube.com/live2/u6kx-44tt-x9xw-j74y-79pw', '-loglevel', 'warning']
 
 # Настраиваем Selenium среду для создания снимков страницы
 
