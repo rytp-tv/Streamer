@@ -13,7 +13,7 @@ import wordgame
 
 # Параметры запуска FFmpeg
 cmds = ['ffmpeg', 
-        '-re', '-framerate 12',
+        '-r', '5',
         '-f', 'image2', 
         '-stream_loop', '-1', 
         '-i', 'screen.png',
@@ -21,9 +21,9 @@ cmds = ['ffmpeg',
         '-i', 'music.mp3', 
         '-preset', 'ultrafast', '-tune', 'stillimage', 
         '-vf', 'format=yuv420p',
-        '-c:v', 'libx264', '-b:v', '1500k', '-maxrate', '4000k', '-bufsize', '2000k', '-g', '6', 
+        '-c:v', 'libx264', '-b:v', '2000k', '-maxrate', '4000k', '-bufsize', '2000k', '-g', '12', 
         '-c:a', 'aac', 
-        '-f', 'flv', '-r', '12', 'rtmp://a.rtmp.youtube.com/live2/u6kx-44tt-x9xw-j74y-79pw', '-loglevel', 'warning']
+        '-f', 'flv', '-r', '16', 'rtmp://a.rtmp.youtube.com/live2/u6kx-44tt-x9xw-j74y-79pw', '-loglevel', 'warning']
 
 # Настраиваем Selenium среду для создания снимков страницы
 
