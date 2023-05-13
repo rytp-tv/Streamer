@@ -46,7 +46,6 @@ def image():
     driver.save_screenshot('screen.png')
     #print("Screen...")
     time.sleep(5)
-    timeout += 5
 
 print("Run FFMPEG now...")
 subprocess.Popen(cmds)
