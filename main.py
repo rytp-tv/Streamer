@@ -21,7 +21,7 @@ cmds = ['ffmpeg',
         '-i', 'music.mp3', 
         '-preset', 'ultrafast', '-tune', 'stillimage', 
         '-vf', 'format=yuv420p',
-        '-c:v', 'libx264', '-b:v', '2000k', '-maxrate', '4000k', '-bufsize', '2000k', '-g', '12', 
+        '-c:v', 'libx264', '-b:v', '2000k', '-maxrate', '4000k', '-bufsize', '2500k', '-g', '12', 
         '-c:a', 'aac', 
         '-f', 'flv', '-r', '16', 'rtmp://a.rtmp.youtube.com/live2/rb83-ssyw-mt4f-vpg6-2azs', '-loglevel', 'warning']
 
